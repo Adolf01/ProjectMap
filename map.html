@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_28e74bd9087a41e9bb43654812ba68ab {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_28e74bd9087a41e9bb43654812ba68ab" ></div>
+        
+</body>
+<script>    
+    
+            var map_28e74bd9087a41e9bb43654812ba68ab = L.map(
+                "map_28e74bd9087a41e9bb43654812ba68ab",
+                {
+                    center: [22.5554, 72.9945],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 11,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_3868a9313119445b977f1a93ddbb9109 = L.tileLayer(
+                "https://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}.jpg",
+                {"attribution": "Map tiles by \u003ca href=\"http://stamen.com\"\u003eStamen Design\u003c/a\u003e, under \u003ca href=\"http://creativecommons.org/licenses/by/3.0\"\u003eCC BY 3.0\u003c/a\u003e. Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://creativecommons.org/licenses/by-sa/3.0\"\u003eCC BY SA\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_28e74bd9087a41e9bb43654812ba68ab);
+        
+    
+            var tile_layer_689ce9279cb040f8bd82445bec625ef5 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_28e74bd9087a41e9bb43654812ba68ab);
+        
+    
+            var tile_layer_956b98171aa840958b72ebdba486227a = L.tileLayer(
+                "https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png",
+                {"attribution": "Stadia.AlidadeSmoothDark", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_28e74bd9087a41e9bb43654812ba68ab);
+        
+    
+            var layer_control_d0eec6257a4b4fe1a715af36085601e5 = {
+                base_layers : {
+                    "stamenterrain" : tile_layer_3868a9313119445b977f1a93ddbb9109,
+                    "openstreetmap" : tile_layer_689ce9279cb040f8bd82445bec625ef5,
+                    "Stadia.AlidadeSmoothDark" : tile_layer_956b98171aa840958b72ebdba486227a,
+                },
+                overlays :  {
+                },
+            };
+            L.control.layers(
+                layer_control_d0eec6257a4b4fe1a715af36085601e5.base_layers,
+                layer_control_d0eec6257a4b4fe1a715af36085601e5.overlays,
+                {"autoZIndex": true, "collapsed": true, "position": "topright"}
+            ).addTo(map_28e74bd9087a41e9bb43654812ba68ab);
+            tile_layer_689ce9279cb040f8bd82445bec625ef5.remove();
+            tile_layer_956b98171aa840958b72ebdba486227a.remove();
+        
+    
+            var marker_f8ef79394b6a44b48af5b980e43e4559 = L.marker(
+                [22.539648321623243, 72.89364390874803],
+                {}
+            ).addTo(map_28e74bd9087a41e9bb43654812ba68ab);
+        
+    
+            var icon_6433b1d452914a7d8a74a12f2c376314 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_f8ef79394b6a44b48af5b980e43e4559.setIcon(icon_6433b1d452914a7d8a74a12f2c376314);
+        
+    
+        var popup_879440631d444bb09210646a1ba2ee29 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_da4900e2335a498b862c42f994847aae = $(`<div id="html_da4900e2335a498b862c42f994847aae" style="width: 100.0%; height: 100.0%;">krishna Hospital</div>`)[0];
+            popup_879440631d444bb09210646a1ba2ee29.setContent(html_da4900e2335a498b862c42f994847aae);
+        
+
+        marker_f8ef79394b6a44b48af5b980e43e4559.bindPopup(popup_879440631d444bb09210646a1ba2ee29)
+        ;
+
+        
+    
+    
+            marker_f8ef79394b6a44b48af5b980e43e4559.bindTooltip(
+                `<div>
+                     cases:1500 bed-avai:700 occupied:800
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0f6b897b973e4d99bce50d0b12807a5d = L.marker(
+                [22.555532005277357, 72.9310501316682],
+                {}
+            ).addTo(map_28e74bd9087a41e9bb43654812ba68ab);
+        
+    
+            var icon_c11099d8c8474a1d932fd4626bac663c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_0f6b897b973e4d99bce50d0b12807a5d.setIcon(icon_c11099d8c8474a1d932fd4626bac663c);
+        
+    
+        var popup_a2bc082c0d7c4c9a80ca0f153426db90 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_d8be8fb75c7847cf8d0e45887f8a736e = $(`<div id="html_d8be8fb75c7847cf8d0e45887f8a736e" style="width: 100.0%; height: 100.0%;">Panchayat Hospital</div>`)[0];
+            popup_a2bc082c0d7c4c9a80ca0f153426db90.setContent(html_d8be8fb75c7847cf8d0e45887f8a736e);
+        
+
+        marker_0f6b897b973e4d99bce50d0b12807a5d.bindPopup(popup_a2bc082c0d7c4c9a80ca0f153426db90)
+        ;
+
+        
+    
+    
+            marker_0f6b897b973e4d99bce50d0b12807a5d.bindTooltip(
+                `<div>
+                     cases:1100 bed-avai:800 occupied:210
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f6ad6080d16e4248a09a4a031bd7ceaa = L.marker(
+                [22.560793099913568, 72.92376726118222],
+                {}
+            ).addTo(map_28e74bd9087a41e9bb43654812ba68ab);
+        
+    
+            var icon_6b819c4764554c67845cf8ae92763e90 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_f6ad6080d16e4248a09a4a031bd7ceaa.setIcon(icon_6b819c4764554c67845cf8ae92763e90);
+        
+    
+        var popup_c0b67bc8913d4f70babde829e1b5f8ab = L.popup({"maxWidth": "100%"});
+
+        
+            var html_27db91328edb4ec3a1f9c49d04124ce6 = $(`<div id="html_27db91328edb4ec3a1f9c49d04124ce6" style="width: 100.0%; height: 100.0%;">Aradhana Hospital</div>`)[0];
+            popup_c0b67bc8913d4f70babde829e1b5f8ab.setContent(html_27db91328edb4ec3a1f9c49d04124ce6);
+        
+
+        marker_f6ad6080d16e4248a09a4a031bd7ceaa.bindPopup(popup_c0b67bc8913d4f70babde829e1b5f8ab)
+        ;
+
+        
+    
+    
+            marker_f6ad6080d16e4248a09a4a031bd7ceaa.bindTooltip(
+                `<div>
+                     cases:1000 bed-avai:700 occupied:300
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_2d17972a274847509a47907d3068fa55 = L.marker(
+                [22.561046371510894, 72.92275887072397],
+                {}
+            ).addTo(map_28e74bd9087a41e9bb43654812ba68ab);
+        
+    
+            var icon_8f4914cf4f304f16b15797e798329607 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_2d17972a274847509a47907d3068fa55.setIcon(icon_8f4914cf4f304f16b15797e798329607);
+        
+    
+        var popup_1e765d784be343c9be561d7c364ae5d7 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_fc1da4ea87ca4a268be7dca6da424afc = $(`<div id="html_fc1da4ea87ca4a268be7dca6da424afc" style="width: 100.0%; height: 100.0%;">Prerana Hospital</div>`)[0];
+            popup_1e765d784be343c9be561d7c364ae5d7.setContent(html_fc1da4ea87ca4a268be7dca6da424afc);
+        
+
+        marker_2d17972a274847509a47907d3068fa55.bindPopup(popup_1e765d784be343c9be561d7c364ae5d7)
+        ;
+
+        
+    
+    
+            marker_2d17972a274847509a47907d3068fa55.bindTooltip(
+                `<div>
+                     cases:150 bed-avai:100 occupied:50
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5dc600b5bfe441af83c51bdf67e24488 = L.marker(
+                [22.566748278832637, 72.94584967616869],
+                {}
+            ).addTo(map_28e74bd9087a41e9bb43654812ba68ab);
+        
+    
+            var icon_8ca87a45a9484330b9cdb737196a428e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_5dc600b5bfe441af83c51bdf67e24488.setIcon(icon_8ca87a45a9484330b9cdb737196a428e);
+        
+    
+        var popup_ec134aad934d4aa286e91119f4fc2f54 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_21be1cf303ff4a139da86b5fa671cc77 = $(`<div id="html_21be1cf303ff4a139da86b5fa671cc77" style="width: 100.0%; height: 100.0%;">Zydus Hospital</div>`)[0];
+            popup_ec134aad934d4aa286e91119f4fc2f54.setContent(html_21be1cf303ff4a139da86b5fa671cc77);
+        
+
+        marker_5dc600b5bfe441af83c51bdf67e24488.bindPopup(popup_ec134aad934d4aa286e91119f4fc2f54)
+        ;
+
+        
+    
+    
+            marker_5dc600b5bfe441af83c51bdf67e24488.bindTooltip(
+                `<div>
+                     cases:200 bed-avai:100 occupied:100
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_10e757c10daf4aa7bf051f599e6087c5 = L.marker(
+                [22.56453598165028, 72.94522552380218],
+                {}
+            ).addTo(map_28e74bd9087a41e9bb43654812ba68ab);
+        
+    
+            var icon_eb168b72b6cf4cc29dac8a5c84c7e580 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_10e757c10daf4aa7bf051f599e6087c5.setIcon(icon_eb168b72b6cf4cc29dac8a5c84c7e580);
+        
+    
+        var popup_c5e6069f820f4034a7d8266a9fbf6cbb = L.popup({"maxWidth": "100%"});
+
+        
+            var html_9a48cdbaa2c54cf1a3aca4b876322e99 = $(`<div id="html_9a48cdbaa2c54cf1a3aca4b876322e99" style="width: 100.0%; height: 100.0%;">Iris Hospital</div>`)[0];
+            popup_c5e6069f820f4034a7d8266a9fbf6cbb.setContent(html_9a48cdbaa2c54cf1a3aca4b876322e99);
+        
+
+        marker_10e757c10daf4aa7bf051f599e6087c5.bindPopup(popup_c5e6069f820f4034a7d8266a9fbf6cbb)
+        ;
+
+        
+    
+    
+            marker_10e757c10daf4aa7bf051f599e6087c5.bindTooltip(
+                `<div>
+                     cases:400 bed-avai:250 occupied:150
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6657cbdf903d424db0e3cc73388ca430 = L.marker(
+                [22.562115692581266, 72.94842756309392],
+                {}
+            ).addTo(map_28e74bd9087a41e9bb43654812ba68ab);
+        
+    
+            var icon_5ae3ef1d04a8488f8074a7b3db1d5851 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_6657cbdf903d424db0e3cc73388ca430.setIcon(icon_5ae3ef1d04a8488f8074a7b3db1d5851);
+        
+    
+        var popup_d724ee8c72f249e5aa707569a55392b9 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_287f803db0e84ade91a41459f1eaf2ef = $(`<div id="html_287f803db0e84ade91a41459f1eaf2ef" style="width: 100.0%; height: 100.0%;">Shreeji Psychratic Hospital</div>`)[0];
+            popup_d724ee8c72f249e5aa707569a55392b9.setContent(html_287f803db0e84ade91a41459f1eaf2ef);
+        
+
+        marker_6657cbdf903d424db0e3cc73388ca430.bindPopup(popup_d724ee8c72f249e5aa707569a55392b9)
+        ;
+
+        
+    
+    
+            marker_6657cbdf903d424db0e3cc73388ca430.bindTooltip(
+                `<div>
+                     cases:1500 bed-avai:700 occupied:800
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_acf22476c9614146b7a141bd490649b1 = L.marker(
+                [22.562235885871807, 72.94880454238415],
+                {}
+            ).addTo(map_28e74bd9087a41e9bb43654812ba68ab);
+        
+    
+            var icon_8823db531ca643a58db5ac251d9f8f44 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_acf22476c9614146b7a141bd490649b1.setIcon(icon_8823db531ca643a58db5ac251d9f8f44);
+        
+    
+        var popup_6b69526a49a1422cb4c3e6e080c73325 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_c7f5a1249fec443c82c4c554a0797bdb = $(`<div id="html_c7f5a1249fec443c82c4c554a0797bdb" style="width: 100.0%; height: 100.0%;">Shashwat Hospital</div>`)[0];
+            popup_6b69526a49a1422cb4c3e6e080c73325.setContent(html_c7f5a1249fec443c82c4c554a0797bdb);
+        
+
+        marker_acf22476c9614146b7a141bd490649b1.bindPopup(popup_6b69526a49a1422cb4c3e6e080c73325)
+        ;
+
+        
+    
+    
+            marker_acf22476c9614146b7a141bd490649b1.bindTooltip(
+                `<div>
+                     cases:350 bed-avai:200 occupied:150
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_de5465d482ee4e9e9bb662310987f6eb = L.marker(
+                [22.56321125437212, 72.96027846501002],
+                {}
+            ).addTo(map_28e74bd9087a41e9bb43654812ba68ab);
+        
+    
+            var icon_abd9d770191b431ab2131a068165d127 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_de5465d482ee4e9e9bb662310987f6eb.setIcon(icon_abd9d770191b431ab2131a068165d127);
+        
+    
+        var popup_09c8a6346a994151b6908efb687c6bd4 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_14101b743b74438ca885acda27fa11d8 = $(`<div id="html_14101b743b74438ca885acda27fa11d8" style="width: 100.0%; height: 100.0%;">Jamna Hospital</div>`)[0];
+            popup_09c8a6346a994151b6908efb687c6bd4.setContent(html_14101b743b74438ca885acda27fa11d8);
+        
+
+        marker_de5465d482ee4e9e9bb662310987f6eb.bindPopup(popup_09c8a6346a994151b6908efb687c6bd4)
+        ;
+
+        
+    
+    
+            marker_de5465d482ee4e9e9bb662310987f6eb.bindTooltip(
+                `<div>
+                     cases:450 bed-avai:300 occupied:150
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6dcf826466434b94a0e695869c9ccf49 = L.marker(
+                [22.56021291093387, 72.96112960604894],
+                {}
+            ).addTo(map_28e74bd9087a41e9bb43654812ba68ab);
+        
+    
+            var icon_da2d655f5e5c46c5a519039a9db188bc = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_6dcf826466434b94a0e695869c9ccf49.setIcon(icon_da2d655f5e5c46c5a519039a9db188bc);
+        
+    
+        var popup_0cd76329d459495d885f1f8f9ecc2d85 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_125c5eedfb96450292c1027f14dc6d0f = $(`<div id="html_125c5eedfb96450292c1027f14dc6d0f" style="width: 100.0%; height: 100.0%;">Meera Hospital</div>`)[0];
+            popup_0cd76329d459495d885f1f8f9ecc2d85.setContent(html_125c5eedfb96450292c1027f14dc6d0f);
+        
+
+        marker_6dcf826466434b94a0e695869c9ccf49.bindPopup(popup_0cd76329d459495d885f1f8f9ecc2d85)
+        ;
+
+        
+    
+    
+            marker_6dcf826466434b94a0e695869c9ccf49.bindTooltip(
+                `<div>
+                     cases:400 bed-avai:300 occupied:100
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_fe2ed54db91f4917afea7e09b8168235 = L.marker(
+                [22.564965942342628, 72.94872380289787],
+                {}
+            ).addTo(map_28e74bd9087a41e9bb43654812ba68ab);
+        
+    
+            var icon_69c9b1ddbe97408589243ac79b679829 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_fe2ed54db91f4917afea7e09b8168235.setIcon(icon_69c9b1ddbe97408589243ac79b679829);
+        
+    
+        var popup_428325eaaac04d35badae530ea144639 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_2ad76a6d4a58460590efb8b7ecf9905b = $(`<div id="html_2ad76a6d4a58460590efb8b7ecf9905b" style="width: 100.0%; height: 100.0%;">Himalya Hospital</div>`)[0];
+            popup_428325eaaac04d35badae530ea144639.setContent(html_2ad76a6d4a58460590efb8b7ecf9905b);
+        
+
+        marker_fe2ed54db91f4917afea7e09b8168235.bindPopup(popup_428325eaaac04d35badae530ea144639)
+        ;
+
+        
+    
+    
+            marker_fe2ed54db91f4917afea7e09b8168235.bindTooltip(
+                `<div>
+                     cases:250 bed-avai:100 occupied:150
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_306e2f13f8f64e95aff34d2fbcd56daa = L.marker(
+                [22.56559178312618, 72.95011929868618],
+                {}
+            ).addTo(map_28e74bd9087a41e9bb43654812ba68ab);
+        
+    
+            var icon_24c662e8083542c8aad7638a66a628e5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_306e2f13f8f64e95aff34d2fbcd56daa.setIcon(icon_24c662e8083542c8aad7638a66a628e5);
+        
+    
+        var popup_cb800fef6f08408bb144e854171c4a1e = L.popup({"maxWidth": "100%"});
+
+        
+            var html_66f670fbbb4141aa9cab987090b42243 = $(`<div id="html_66f670fbbb4141aa9cab987090b42243" style="width: 100.0%; height: 100.0%;">Kusum Children Hospital</div>`)[0];
+            popup_cb800fef6f08408bb144e854171c4a1e.setContent(html_66f670fbbb4141aa9cab987090b42243);
+        
+
+        marker_306e2f13f8f64e95aff34d2fbcd56daa.bindPopup(popup_cb800fef6f08408bb144e854171c4a1e)
+        ;
+
+        
+    
+    
+            marker_306e2f13f8f64e95aff34d2fbcd56daa.bindTooltip(
+                `<div>
+                     cases:100 bed-avai:80 occupied:20
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6a312579b3d54ad898884d77c0f83c33 = L.marker(
+                [22.565589925480214, 72.95040696560142],
+                {}
+            ).addTo(map_28e74bd9087a41e9bb43654812ba68ab);
+        
+    
+            var icon_f4b3cb1bf8344e48a127b0db8c2cce70 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_6a312579b3d54ad898884d77c0f83c33.setIcon(icon_f4b3cb1bf8344e48a127b0db8c2cce70);
+        
+    
+        var popup_cb4fcc96cccd406db9977255263a0bd6 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_e6439374cf3240119c409133a241b0e2 = $(`<div id="html_e6439374cf3240119c409133a241b0e2" style="width: 100.0%; height: 100.0%;">Tsquare Hospital</div>`)[0];
+            popup_cb4fcc96cccd406db9977255263a0bd6.setContent(html_e6439374cf3240119c409133a241b0e2);
+        
+
+        marker_6a312579b3d54ad898884d77c0f83c33.bindPopup(popup_cb4fcc96cccd406db9977255263a0bd6)
+        ;
+
+        
+    
+    
+            marker_6a312579b3d54ad898884d77c0f83c33.bindTooltip(
+                `<div>
+                     cases:900 bed-avai:700 occupied:200
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_3a1999630b804af1b200edd2ed9e8caa = L.marker(
+                [22.55655146914618, 72.95876536448482],
+                {}
+            ).addTo(map_28e74bd9087a41e9bb43654812ba68ab);
+        
+    
+            var icon_8a47284da0994675a9c8f6262ece3904 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_3a1999630b804af1b200edd2ed9e8caa.setIcon(icon_8a47284da0994675a9c8f6262ece3904);
+        
+    
+        var popup_36bd8fdd6d434aba82e6d5b93fe933ef = L.popup({"maxWidth": "100%"});
+
+        
+            var html_e3d60cd230b944f092fe4f695021b3cd = $(`<div id="html_e3d60cd230b944f092fe4f695021b3cd" style="width: 100.0%; height: 100.0%;">Maa Hospital</div>`)[0];
+            popup_36bd8fdd6d434aba82e6d5b93fe933ef.setContent(html_e3d60cd230b944f092fe4f695021b3cd);
+        
+
+        marker_3a1999630b804af1b200edd2ed9e8caa.bindPopup(popup_36bd8fdd6d434aba82e6d5b93fe933ef)
+        ;
+
+        
+    
+    
+            marker_3a1999630b804af1b200edd2ed9e8caa.bindTooltip(
+                `<div>
+                     cases:850 bed-avai:600 occupied:250
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d08490448a6047cfba8100ab1705d5a1 = L.marker(
+                [22.55691300525526, 72.95743030910604],
+                {}
+            ).addTo(map_28e74bd9087a41e9bb43654812ba68ab);
+        
+    
+            var icon_01c15dfa31064394a6000e9e17169d6e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_d08490448a6047cfba8100ab1705d5a1.setIcon(icon_01c15dfa31064394a6000e9e17169d6e);
+        
+    
+        var popup_fdbaddb8cf5647709456d32fd37577d4 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_9a35be8b0c95440f8cbad52d17f8d0a5 = $(`<div id="html_9a35be8b0c95440f8cbad52d17f8d0a5" style="width: 100.0%; height: 100.0%;">Astha Hospital </div>`)[0];
+            popup_fdbaddb8cf5647709456d32fd37577d4.setContent(html_9a35be8b0c95440f8cbad52d17f8d0a5);
+        
+
+        marker_d08490448a6047cfba8100ab1705d5a1.bindPopup(popup_fdbaddb8cf5647709456d32fd37577d4)
+        ;
+
+        
+    
+    
+            marker_d08490448a6047cfba8100ab1705d5a1.bindTooltip(
+                `<div>
+                     cases:750 bed-avai:500 occupied:200
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7ad88a30457e455b80abd2815f5a0804 = L.marker(
+                [22.5573743665248, 72.95738795607535],
+                {}
+            ).addTo(map_28e74bd9087a41e9bb43654812ba68ab);
+        
+    
+            var icon_23a7431976da4ea3856ddbab7568a5c8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_7ad88a30457e455b80abd2815f5a0804.setIcon(icon_23a7431976da4ea3856ddbab7568a5c8);
+        
+    
+        var popup_6db6561112594c09a2929159f941fcaa = L.popup({"maxWidth": "100%"});
+
+        
+            var html_73169a11bde045598155cda99f470611 = $(`<div id="html_73169a11bde045598155cda99f470611" style="width: 100.0%; height: 100.0%;">Chaitanya Hospital</div>`)[0];
+            popup_6db6561112594c09a2929159f941fcaa.setContent(html_73169a11bde045598155cda99f470611);
+        
+
+        marker_7ad88a30457e455b80abd2815f5a0804.bindPopup(popup_6db6561112594c09a2929159f941fcaa)
+        ;
+
+        
+    
+    
+            marker_7ad88a30457e455b80abd2815f5a0804.bindTooltip(
+                `<div>
+                     cases:700 bed-avai:400 occupied:300
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_144d31d1181d4739a33d44f7b5bb0b12 = L.marker(
+                [22.558392663813276, 72.9576246000592],
+                {}
+            ).addTo(map_28e74bd9087a41e9bb43654812ba68ab);
+        
+    
+            var icon_466dab34c9a14c5c858a7b871633351b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_144d31d1181d4739a33d44f7b5bb0b12.setIcon(icon_466dab34c9a14c5c858a7b871633351b);
+        
+    
+        var popup_6e5ab7fac53b4f669fd1d6516a198d75 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_9614b9748bae457481feccbdcf3e4db3 = $(`<div id="html_9614b9748bae457481feccbdcf3e4db3" style="width: 100.0%; height: 100.0%;">Shreeji Women Hospital</div>`)[0];
+            popup_6e5ab7fac53b4f669fd1d6516a198d75.setContent(html_9614b9748bae457481feccbdcf3e4db3);
+        
+
+        marker_144d31d1181d4739a33d44f7b5bb0b12.bindPopup(popup_6e5ab7fac53b4f669fd1d6516a198d75)
+        ;
+
+        
+    
+    
+            marker_144d31d1181d4739a33d44f7b5bb0b12.bindTooltip(
+                `<div>
+                     cases:800 bed-avai:500 occupied:300
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0bd43459e4254b2c9b0cb2dfa3b1cdd1 = L.marker(
+                [22.558921175515923, 72.95821408643907],
+                {}
+            ).addTo(map_28e74bd9087a41e9bb43654812ba68ab);
+        
+    
+            var icon_b54116cf1340469db4623fc1f93375f1 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_0bd43459e4254b2c9b0cb2dfa3b1cdd1.setIcon(icon_b54116cf1340469db4623fc1f93375f1);
+        
+    
+        var popup_fd5dc4725cb64f3cab98d6de52c443c8 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_60834b0f2a384e7eb62b0690d84b3cd6 = $(`<div id="html_60834b0f2a384e7eb62b0690d84b3cd6" style="width: 100.0%; height: 100.0%;">Deep Hospital</div>`)[0];
+            popup_fd5dc4725cb64f3cab98d6de52c443c8.setContent(html_60834b0f2a384e7eb62b0690d84b3cd6);
+        
+
+        marker_0bd43459e4254b2c9b0cb2dfa3b1cdd1.bindPopup(popup_fd5dc4725cb64f3cab98d6de52c443c8)
+        ;
+
+        
+    
+    
+            marker_0bd43459e4254b2c9b0cb2dfa3b1cdd1.bindTooltip(
+                `<div>
+                     cases:550 bed-avai:300 occupied:250
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f7e3090458404df3b3b7ae4a5ef33f95 = L.marker(
+                [22.559306560703114, 72.96114925620266],
+                {}
+            ).addTo(map_28e74bd9087a41e9bb43654812ba68ab);
+        
+    
+            var icon_dd7d123b9f814ef7b3ad9b8b4a12c108 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_f7e3090458404df3b3b7ae4a5ef33f95.setIcon(icon_dd7d123b9f814ef7b3ad9b8b4a12c108);
+        
+    
+        var popup_e36455b40a764ff29b3b3f9c0fca9223 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_2ae9b064d20945afaf4461bae7737919 = $(`<div id="html_2ae9b064d20945afaf4461bae7737919" style="width: 100.0%; height: 100.0%;">Satyam Hospital</div>`)[0];
+            popup_e36455b40a764ff29b3b3f9c0fca9223.setContent(html_2ae9b064d20945afaf4461bae7737919);
+        
+
+        marker_f7e3090458404df3b3b7ae4a5ef33f95.bindPopup(popup_e36455b40a764ff29b3b3f9c0fca9223)
+        ;
+
+        
+    
+    
+            marker_f7e3090458404df3b3b7ae4a5ef33f95.bindTooltip(
+                `<div>
+                     cases:600 bed-avai:400 occupied:200
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d1b8e9c4d1ed4970b456514b6025b9a8 = L.marker(
+                [22.56130194258607, 72.96039895330304],
+                {}
+            ).addTo(map_28e74bd9087a41e9bb43654812ba68ab);
+        
+    
+            var icon_6ee689a9aa584ddfba90af63d7724d06 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_d1b8e9c4d1ed4970b456514b6025b9a8.setIcon(icon_6ee689a9aa584ddfba90af63d7724d06);
+        
+    
+        var popup_f5e3939996444e968e8797f0e901cd60 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_3bb1daf084264447b02e33381a9f67a1 = $(`<div id="html_3bb1daf084264447b02e33381a9f67a1" style="width: 100.0%; height: 100.0%;">Rutu General Hospital</div>`)[0];
+            popup_f5e3939996444e968e8797f0e901cd60.setContent(html_3bb1daf084264447b02e33381a9f67a1);
+        
+
+        marker_d1b8e9c4d1ed4970b456514b6025b9a8.bindPopup(popup_f5e3939996444e968e8797f0e901cd60)
+        ;
+
+        
+    
+    
+            marker_d1b8e9c4d1ed4970b456514b6025b9a8.bindTooltip(
+                `<div>
+                     cases:500 bed-avai:300 occupied:200
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e0192b84120a4dd3a4e81751f0145cbb = L.marker(
+                [22.56167187904674, 72.96369752857409],
+                {}
+            ).addTo(map_28e74bd9087a41e9bb43654812ba68ab);
+        
+    
+            var icon_53b4148410a54ff69195e5828df317f4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "medkit", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_e0192b84120a4dd3a4e81751f0145cbb.setIcon(icon_53b4148410a54ff69195e5828df317f4);
+        
+    
+        var popup_a535bdbac82149daa07037bd7260c6bb = L.popup({"maxWidth": "100%"});
+
+        
+            var html_c202f3928ed7466c83f858edfce77ca6 = $(`<div id="html_c202f3928ed7466c83f858edfce77ca6" style="width: 100.0%; height: 100.0%;">Apollo Hospital</div>`)[0];
+            popup_a535bdbac82149daa07037bd7260c6bb.setContent(html_c202f3928ed7466c83f858edfce77ca6);
+        
+
+        marker_e0192b84120a4dd3a4e81751f0145cbb.bindPopup(popup_a535bdbac82149daa07037bd7260c6bb)
+        ;
+
+        
+    
+    
+            marker_e0192b84120a4dd3a4e81751f0145cbb.bindTooltip(
+                `<div>
+                     cases:1200 bed-avai:400 occupied:800
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
